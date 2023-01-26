@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import getEllipsisText from "../utils/getEllipsisText";
 
 type Props = {

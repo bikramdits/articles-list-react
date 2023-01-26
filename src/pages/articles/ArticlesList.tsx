@@ -1,23 +1,23 @@
-import React, { memo, useCallback, useState } from "react";
 import ArticleCard, { ArticleType } from "components/articles/ArticleCard";
+import React, { memo, useCallback, useState } from "react";
 import {
   ArticleCount,
   ArticleCountInput,
   CardContainer,
   Container,
-  GetCountButton,
   LoadMore,
   MainHeading,
   Text,
 } from "./ArticleListStyles";
 
+import Button from "components/elements/Button";
 import { SAMPLE_ARTICLE } from "../../mock-data/ARTICLE_SAMPLE";
 
 export const initialArticlesCount = 5;
 
-const genrateInitialArticlesList = (initialArticlesCount: number) => {
+const genrateInitialArticlesList = (initialCount: number) => {
   const articles = [];
-  for (let index = 0; index < initialArticlesCount; index++) {
+  for (let index = 0; index < initialCount; index++) {
     articles.push(SAMPLE_ARTICLE);
   }
   return articles;
@@ -25,7 +25,6 @@ const genrateInitialArticlesList = (initialArticlesCount: number) => {
 
 const ArticlesList = () => {
   const [articlesCount, setArticlesCount] = useState<number>(initialArticlesCount);
-  const [error, setError] = useState("");
   const [articlesList, setArticlesList] = useState<ArticleType[]>(
     genrateInitialArticlesList(initialArticlesCount),
   );
@@ -36,19 +35,9 @@ const ArticlesList = () => {
     setArticlesCount(Number(replaced));
   };
 
-  const MAX_LIMIT = 5000;
-
   // using useCallback for preventing running loop for same number of articles
   const getArticlesList = useCallback(
     function () {
-      // if (articlesCount > MAX_LIMIT) {
-      //   return setError("Too many articles");
-      // }
-
-      // if (error) {
-      //   setError("");
-      // }
-
       const articles = [];
       for (let index = 0; index < articlesCount; index++) {
         articles.push(SAMPLE_ARTICLE);
@@ -63,7 +52,7 @@ const ArticlesList = () => {
       <MainHeading id="articles-heading">Related Articles </MainHeading>
       <Text>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+        been the industry standard dummy text ever since the 1500s, when an unknown printer took a
         galley of type and scrambled it to make a type specimen book. It has survived not only five
         centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
@@ -86,14 +75,13 @@ const ArticlesList = () => {
             onChange={onInputChange}
             value={articlesCount}
           />{" "}
-          <GetCountButton
+          <Button
             data-testid="render-count-button"
             onClick={() => {
               setArticlesList(getArticlesList);
             }}
-          >
-            Plot Articles
-          </GetCountButton>
+            text="Plot Articles"
+          />
         </ArticleCount>
       </LoadMore>
     </Container>
