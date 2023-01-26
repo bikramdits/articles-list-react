@@ -1,4 +1,5 @@
 import useEllipsisText from "custom-hooks/useEllipsisText";
+import getDeviceOS from "utils/getDeviceOS";
 import {
   Card,
   CardBody,
@@ -19,8 +20,10 @@ export type ArticleType = {
 const MAX_LENGTH = 350;
 
 const ArticleCard = ({ title, description, articleNumber }: ArticleType) => {
+  const os = getDeviceOS();
+
   const { textToBeShown, setIsShowMore, isShowMore } = useEllipsisText({
-    maxLength: MAX_LENGTH,
+    maxLength: os === "Other" ? MAX_LENGTH : MAX_LENGTH - 40,
     text: description,
   });
 
