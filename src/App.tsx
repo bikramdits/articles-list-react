@@ -1,14 +1,7 @@
-import Loader from "./components/loader/Loader";
-import { lazy, Suspense } from "react";
+import ArticlesList from "pages/articles/ArticlesList";
 import "./App.css";
-const ArticlesList = lazy(() => import("./pages/articles/ArticlesList"));
-
 function App() {
-  return (
-    // <Suspense fallback={<Loader />}>
-    <ArticlesList />
-    // </Suspense>
-  );
+  return <ArticlesList />;
 }
 
 export default App;
