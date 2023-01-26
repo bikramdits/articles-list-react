@@ -23,7 +23,7 @@ const ArticleCard = ({ title, description, articleNumber }: ArticleType) => {
   const os = getDeviceOS();
 
   const { textToBeShown, setIsShowMore, isShowMore } = useEllipsisText({
-    maxLength: os === "Other" ? MAX_LENGTH : MAX_LENGTH - 70,
+    maxLength: os === "Other" ? MAX_LENGTH : MAX_LENGTH - 100,
     text: description,
   });
 
