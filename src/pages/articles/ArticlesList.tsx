@@ -15,7 +15,7 @@ import { SAMPLE_ARTICLE } from "../../mock-data/ARTICLE_SAMPLE";
 
 export const initialArticlesCount = 3;
 
-const genrateInitialArticlesList = (initialArticlesCount: number) => {
+const generateInitialArticlesList = (initialArticlesCount: number) => {
   const articles = [];
   for (let index = 0; index < initialArticlesCount; index++) {
     articles.push(SAMPLE_ARTICLE);
@@ -26,7 +26,7 @@ const genrateInitialArticlesList = (initialArticlesCount: number) => {
 const ArticlesList = () => {
   const [articlesCount, setArticlesCount] = useState<number>(initialArticlesCount);
   const [articlesList, setArticlesList] = useState<ArticleType[]>(
-    genrateInitialArticlesList(initialArticlesCount),
+    generateInitialArticlesList(initialArticlesCount),
   );
 
   const onInputChange = (event: React.FormEvent<HTMLInputElement>) => {
