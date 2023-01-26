@@ -29,6 +29,8 @@ Npm
 
 ### Installation and Setup Instructions
 
+- Switch to feature/articles branch
+
 Installation of dependencies (project's root directory):
 
 `npm install`
