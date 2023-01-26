@@ -10,6 +10,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight:400 ;
     color:${Colors.Black}
   };
+
+  
  p,h1,h3 {
     margin:0;
  };

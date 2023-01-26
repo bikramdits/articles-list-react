@@ -5,9 +5,9 @@ const ArticlesList = lazy(() => import("./pages/articles/ArticlesList"));
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
-      <ArticlesList />
-    </Suspense>
+    // <Suspense fallback={<Loader />}>
+    <ArticlesList />
+    // </Suspense>
   );
 }
 

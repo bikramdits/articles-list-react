@@ -13,11 +13,11 @@ import {
 import Button from "components/elements/Button";
 import { SAMPLE_ARTICLE } from "../../mock-data/ARTICLE_SAMPLE";
 
-export const initialArticlesCount = 5;
+export const initialArticlesCount = 3;
 
-const genrateInitialArticlesList = (initialCount: number) => {
+const genrateInitialArticlesList = (initialArticlesCount: number) => {
   const articles = [];
-  for (let index = 0; index < initialCount; index++) {
+  for (let index = 0; index < initialArticlesCount; index++) {
     articles.push(SAMPLE_ARTICLE);
   }
   return articles;
